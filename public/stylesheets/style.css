@@ -1,86 +1,108 @@
 .container {
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+	max-width: 1500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 h1 {
-  text-align: center;
+	text-align: center;
 }
 
 #search-wrap,
 #description {
-  text-align: center;
+	text-align: center;
 }
 
 #description {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 #search-field,
 #request-btn {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 300px;
-  border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 300px;
+	border-radius: 5px;
 }
 
 #search-field {
-  border: 2px solid #202020;
-  height: 35px;
+	border: 2px solid #202020;
+	height: 35px;
 }
 #request-btn {
-  text-align: center;
-  background: #202020;
-  color: #fff;
-  margin-top: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 18px;
-  transition-property: background, color;
-  transition-duration: 500ms;
+	text-align: center;
+	background: #202020;
+	color: #fff;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 18px;
+	transition-property: background, color;
+	transition-duration: 500ms;
 }
 
 #request-btn {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 #request-btn:hover {
-  background: #d9d9d9;
-  color: #202020;
-  transition-property: background, color;
-  transition-duration: 500ms;
+	background: #d9d9d9;
+	color: #202020;
+	transition-property: background, color;
+	transition-duration: 500ms;
 }
 
-#api-tr {
-  display: none;
-}
 
+/*TABLES*/
 table,
 tbody,
 table tr {
-  width: 100%;
-}
-
-table th,
-table td {
-  width: 33%;
-  text-align: center;
+	width: 100%;
 }
 
 table th {
-  padding-bottom: 50px;
-  padding-top: 20px;
+	padding-bottom: 50px;
+	padding-top: 20px;
+}
+
+#final-line-wrap table td:nth-child(1) {
+	width: 50%;
+	text-align: left;
+}
+
+#final-line-wrap table td:nth-child(2) {
+	width: 50%;
+	text-align: right;
+}
+
+#api-table tr th,
+#api-table tr td {
+	text-align: center;
+	width: 33%;
+}
+/*TABLES*/
+
+
+#final-line-wrap {
+	display: block;
+	width: 298px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#api-tr {
+	display: none;
 }
 
 #final-line-img {
-    display: block;
+	display: block;
+	margin-bottom: 30px;
 	width: 298px;
-    margin-left: auto;
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #final-line-wrap {
