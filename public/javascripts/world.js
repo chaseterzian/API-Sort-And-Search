@@ -32,4 +32,39 @@ $(document).ready(function() {
 
 	});
 
+
+	$('#search-field').keyup(function() {
+
+		query = document.getElementById('search-field').value.toLowerCase();
+
+		$('tr td').hide();
+
+		for (var x = 0; x < dataApi.length; x++) {
+
+			nameCol = dataApi[x].name.toLowerCase();
+			popCol = dataApi[x].population.toString();
+			regCol = dataApi[x].region.toLowerCase();
+
+			if (popCol.indexOf(query) > - 1) {
+				$('tr').eq(x+1).find('td').eq(0).show();
+				$('tr').eq(x+1).find('td').eq(1).show();
+				$('tr').eq(x+1).find('td').eq(2).show();
+			}
+
+			if (nameCol.indexOf(query) > - 1) {
+				$('tr').eq(x+1).find('td').eq(0).show();
+				$('tr').eq(x+1).find('td').eq(1).show();
+				$('tr').eq(x+1).find('td').eq(2).show();
+			}
+
+			if (regCol.indexOf(query) > - 1) {
+				$('tr').eq(x+1).find('td').eq(0).show();
+				$('tr').eq(x+1).find('td').eq(1).show();
+				$('tr').eq(x+1).find('td').eq(2).show();
+			}
+
+		}
+
+	});
+
 });
