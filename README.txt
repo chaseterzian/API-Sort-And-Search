@@ -9,7 +9,7 @@ STEP 1. Click the 'REQUEST INFORMATION' button to load the names of all countrie
 STEP 2. You can then interact with the search field to narrow down the results. You can enter and/or filter by two types of data:
 
 	THE FIRST IS WORDS: 
-		Start by typing a name of a country or region. As you type the letters into the search box, the results will be narrowed down according the the words you type.
+		Start by typing a name of a country or region. As you type the letters into the search box, the results will be narrowed down.
 
 	THE SECOND IS NUMBERS: 
 		Start by typing a number. The results will be narrowed down according to the numbers you type. There are three ways to narrow down your results by typing a number:
@@ -33,7 +33,7 @@ STEP 2. You can then interact with the search field to narrow down the results. 
 				> 345678
 
 
-Once you filter the list enough so that only one country remains, you will be presented with more data about the country that includes:
+Once you filter the list far enough so that only one country remains, you will be presented with all the available data for that country which includes:
 	1. Am image of the country flag
 	2. The name of the country
 	3. The capital 
