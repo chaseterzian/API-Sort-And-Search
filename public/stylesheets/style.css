@@ -103,6 +103,10 @@ table th {
 	margin-bottom: 100px;
 }
 
+#final-line-img {
+	border: 1px solid #202020;
+}
+
 #api-tr,
 #search-wrap {
 	display: none;
