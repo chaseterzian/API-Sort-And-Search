@@ -92,16 +92,16 @@ $(document).ready(function() {
 
 			document.getElementById('final-line-img').src = dataApi[dataApiIndex].flag;
 			document.getElementById('final-line-name').innerHTML = dataApi[dataApiIndex].name;
-			document.getElementById('final-line-population').innerHTML = dataApi[dataApiIndex].region;
-			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].population;
+			document.getElementById('final-line-capital').innerHTML = dataApi[dataApiIndex].capital; 
+			document.getElementById('final-line-population').innerHTML = dataApi[dataApiIndex].population;
+			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].region;
 			document.getElementById('final-line-country-code').innerHTML = dataApi[dataApiIndex].alpha3Code;
 			// document.getElementById('final-line-bordering-countries').innerHTML = dataApi[dataApiIndex].borders; 
-			document.getElementById('final-line-capital').innerHTML = dataApi[dataApiIndex].capital; 
 			// document.getElementById('final-line-currency-code').innerHTML = dataApi[dataApiIndex].currencies.code; 
 			// document.getElementById('final-line-currency-name').innerHTML = dataApi[dataApiIndex].currencies.name; 
 			// document.getElementById('final-line-currency-symbol').innerHTML = dataApi[dataApiIndex].currencies.symbol; 
 			// document.getElementById('final-line-language').innerHTML = dataApi[dataApiIndex].languages.name; 
-			// document.getElementById('final-line-tld').innerHTML = dataApi[dataApiIndex].topLevelDomain; 
+			document.getElementById('final-line-tld').innerHTML = dataApi[dataApiIndex].topLevelDomain; 
 		}
 
 	});
