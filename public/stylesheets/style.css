@@ -75,3 +75,13 @@ table th {
   padding-bottom: 50px;
   padding-top: 20px;
 }
+
+#final-line-img {
+    display: block;
+	width: 298px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#final-line-wrap {
+	display: none;
+}
