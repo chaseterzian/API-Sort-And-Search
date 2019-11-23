@@ -3,32 +3,39 @@ $(document).ready(function() {
 	dataApi = [];
 
 	$('#request-btn').on('click', function() {
-		$('#api-tr').show();
-		$('#search-wrap').show();
-		$('#request-btn').hide();
 
 		$.get("https://restcountries.eu/rest/v2/all").done(function( data ) {
+			$('#loader').addClass('loader');
 
-			for ( var i = 0; i < data.length; i++ ) {
+			setTimeout(function() {
+				$('#api-tr').show();
+				$('#search-wrap').show();
+				$('#loader').removeClass('loader');
+				$('#request-btn').fadeOut(1000);
 
-				dataApi.push(data[i]);
+				for ( var i = 0; i < data.length; i++ ) {
 
-				var tr = document.createElement('tr');   
+					dataApi.push(data[i]);
 
-				var td1 = document.createElement('td');
-				td1.innerHTML = (data[i].name);
-				tr.appendChild(td1);
+					var tr = document.createElement('tr');   
 
-				var td2 = document.createElement('td');
-				td2.innerHTML = (data[i].population);
-				tr.appendChild(td2);
+					var td1 = document.createElement('td');
+					td1.innerHTML = (data[i].name);
+					tr.appendChild(td1);
 
-				var td3 = document.createElement('td');
-				td3.innerHTML = (data[i].region);
-				tr.appendChild(td3);
+					var td2 = document.createElement('td');
+					td2.innerHTML = (data[i].population);
+					tr.appendChild(td2);
 
-				document.getElementById('api-tbody').appendChild(tr);
-			}
+					var td3 = document.createElement('td');
+					td3.innerHTML = (data[i].subregion);
+					tr.appendChild(td3);
+
+					document.getElementById('api-tbody').appendChild(tr);
+				}
+
+
+			},1000);
 
 		});
 
@@ -46,7 +53,7 @@ $(document).ready(function() {
 
 			nameCol = dataApi[x].name.toLowerCase();
 			popCol = dataApi[x].population.toString();
-			regCol = dataApi[x].region.toLowerCase();
+			regCol = dataApi[x].subregion.toLowerCase();
 
 			if (query.indexOf("<") > -1 || query.indexOf("< ") > -1) {
 				if (parseInt(popCol) <= parseInt(query.substring(1))) {
@@ -85,7 +92,7 @@ $(document).ready(function() {
 		}
 
 		if ($('#api-table td:visible').length === 3) {
-			$('#final-line-wrap').show();
+			$('#final-line-wrap').fadeIn(200);
 
 			dataApiIndex = $('#api-table td:visible').attr('class');
 			
@@ -96,7 +103,7 @@ $(document).ready(function() {
 			document.getElementById('final-line-name').innerHTML = dataApi[dataApiIndex].name;
 			document.getElementById('final-line-capital').innerHTML = dataApi[dataApiIndex].capital; 
 			document.getElementById('final-line-population').innerHTML = dataApi[dataApiIndex].population;
-			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].region;
+			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].subregion;
 			document.getElementById('final-line-country-code').innerHTML = dataApi[dataApiIndex].alpha3Code;
 			// document.getElementById('final-line-bordering-countries').innerHTML = dataApi[dataApiIndex].borders; 
 			// document.getElementById('final-line-currency-code').innerHTML = dataApi[dataApiIndex].currencies.code; 
