@@ -44,6 +44,26 @@ $(document).ready(function() {
 			nameCol = dataApi[x].name.toLowerCase();
 			popCol = dataApi[x].population.toString();
 			regCol = dataApi[x].region.toLowerCase();
+			// lt = false;
+			// gt = false;
+
+			if (query.indexOf("<") > -1 || query.indexOf("< ") > -1) {
+				// lt = true;
+				if (parseInt(popCol) <= parseInt(query.substring(1))) {
+					$('tr').eq(x+1).find('td').eq(0).show();
+					$('tr').eq(x+1).find('td').eq(1).show();
+					$('tr').eq(x+1).find('td').eq(2).show();
+				}
+			}
+
+			if (query.indexOf(">") > -1 || query.indexOf(">") > -1) {
+				// gt = true;
+				if (parseInt(popCol) >= parseInt(query.substring(1))) {
+					$('tr').eq(x+1).find('td').eq(0).show();
+					$('tr').eq(x+1).find('td').eq(1).show();
+					$('tr').eq(x+1).find('td').eq(2).show();
+				}
+			}
 
 			if (popCol.indexOf(query) > - 1) {
 				$('tr').eq(x+1).find('td').eq(0).show();
