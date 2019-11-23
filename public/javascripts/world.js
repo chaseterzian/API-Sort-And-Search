@@ -7,34 +7,33 @@ $(document).ready(function() {
 		$.get("https://restcountries.eu/rest/v2/all").done(function( data ) {
 			$('#loader').addClass('loader');
 
+			$('#api-tr').show();
+			$('#search-wrap').show();
+			$('#request-btn').hide();
+
+			for ( var i = 0; i < data.length; i++ ) {
+
+				dataApi.push(data[i]);
+
+				var tr = document.createElement('tr');   
+
+				var td1 = document.createElement('td');
+				td1.innerHTML = (data[i].name);
+				tr.appendChild(td1);
+
+				var td2 = document.createElement('td');
+				td2.innerHTML = (data[i].population);
+				tr.appendChild(td2);
+
+				var td3 = document.createElement('td');
+				td3.innerHTML = (data[i].subregion);
+				tr.appendChild(td3);
+
+				document.getElementById('api-tbody').appendChild(tr);
+			}
+
 			setTimeout(function() {
-				$('#api-tr').show();
-				$('#search-wrap').show();
 				$('#loader').removeClass('loader');
-				$('#request-btn').fadeOut(1000);
-
-				for ( var i = 0; i < data.length; i++ ) {
-
-					dataApi.push(data[i]);
-
-					var tr = document.createElement('tr');   
-
-					var td1 = document.createElement('td');
-					td1.innerHTML = (data[i].name);
-					tr.appendChild(td1);
-
-					var td2 = document.createElement('td');
-					td2.innerHTML = (data[i].population);
-					tr.appendChild(td2);
-
-					var td3 = document.createElement('td');
-					td3.innerHTML = (data[i].subregion);
-					tr.appendChild(td3);
-
-					document.getElementById('api-tbody').appendChild(tr);
-				}
-
-
 			},1000);
 
 		});
@@ -44,49 +43,50 @@ $(document).ready(function() {
 
 	$('#search-field').keyup(function() {
 
-		query = document.getElementById('search-field').value.toLowerCase();
+		var query = document.getElementById('search-field').value.toLowerCase();
+		var apiTableTr = $('#api-table tr');
 
 		$('#api-table tr td').hide();
 		$('#final-line-wrap').hide();
 
 		for (var x = 0; x < dataApi.length; x++) {
 
-			nameCol = dataApi[x].name.toLowerCase();
-			popCol = dataApi[x].population.toString();
-			regCol = dataApi[x].subregion.toLowerCase();
+			var nameCol = dataApi[x].name.toLowerCase();
+			var popCol = dataApi[x].population.toString();
+			var regCol = dataApi[x].subregion.toLowerCase();
 
 			if (query.indexOf("<") > -1 || query.indexOf("< ") > -1) {
 				if (parseInt(popCol) <= parseInt(query.substring(1))) {
-					$('#api-table tr').eq(x+1).find('td').eq(0).addClass(x.toString()).show();
-					$('#api-table tr').eq(x+1).find('td').eq(1).addClass(x.toString()).show();
-					$('#api-table tr').eq(x+1).find('td').eq(2).addClass(x.toString()).show();
+					for (var a = 0; a < 3; a++) {
+						apiTableTr.eq(x+1).find('td').eq(a).addClass(x.toString()).show();
+					}
 				}
 			}
 
 			if (query.indexOf(">") > -1 || query.indexOf(">") > -1) {
 				if (parseInt(popCol) >= parseInt(query.substring(1))) {
-					$('#api-table tr').eq(x+1).find('td').eq(0).addClass(x.toString()).show();
-					$('#api-table tr').eq(x+1).find('td').eq(1).addClass(x.toString()).show();
-					$('#api-table tr').eq(x+1).find('td').eq(2).addClass(x.toString()).show();
+					for (var b = 0; b < 3; b++) {
+						apiTableTr.eq(x+1).find('td').eq(b).addClass(x.toString()).show();
+					}
 				}
 			}
 
 			if (popCol.indexOf(query) > - 1) {
-				$('#api-table tr').eq(x+1).find('td').eq(0).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(1).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(2).addClass(x.toString()).show();
+				for (var c = 0; c < 3; c++) {
+					apiTableTr.eq(x+1).find('td').eq(c).addClass(x.toString()).show();
+				}
 			}
 
 			if (nameCol.indexOf(query) > - 1) {
-				$('#api-table tr').eq(x+1).find('td').eq(0).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(1).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(2).addClass(x.toString()).show();
+				for (var d = 0; d < 3; d++) {
+					apiTableTr.eq(x+1).find('td').eq(d).addClass(x.toString()).show();
+				}
 			}
 
 			if (regCol.indexOf(query) > - 1) {
-				$('#api-table tr').eq(x+1).find('td').eq(0).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(1).addClass(x.toString()).show();
-				$('#api-table tr').eq(x+1).find('td').eq(2).addClass(x.toString()).show();
+				for (e = 0; e < 3; e++) {
+					apiTableTr.eq(x+1).find('td').eq(e).addClass(x.toString()).show();
+				}
 			}
 
 		}
@@ -94,7 +94,7 @@ $(document).ready(function() {
 		if ($('#api-table td:visible').length === 3) {
 			$('#final-line-wrap').fadeIn(200);
 
-			dataApiIndex = $('#api-table td:visible').attr('class');
+			var dataApiIndex = $('#api-table td:visible').attr('class');
 			
 			$('#api-table tr th').hide();
 			$('#api-table td:visible').hide();

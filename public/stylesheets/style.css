@@ -51,6 +51,7 @@ h1 {
 #request-btn:hover {
 	background: #d9d9d9;
 	color: #202020;
+	cursor: pointer;
 	transition-property: background, color;
 	transition-duration: 500ms;
 }
@@ -124,11 +125,11 @@ table th {
 }
 
 .loader {
-  border: 3px solid #f3f3f3;
+  border: 6px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 4px solid #3498db;
-  width: 30px;
-  height: 30px;
+  border-top: 8px solid #3498db;
+  width: 60px;
+  height: 60px;
   -webkit-animation: spin 1s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
 }
