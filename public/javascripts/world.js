@@ -4,6 +4,8 @@ $(document).ready(function() {
 
 	$('#request-btn').on('click', function() {
 		$('#api-tr').show();
+		$('#search-wrap').show();
+		$('#request-btn').hide();
 
 		$.get("https://restcountries.eu/rest/v2/all").done(function( data ) {
 
