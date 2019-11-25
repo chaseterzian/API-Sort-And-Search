@@ -26,7 +26,7 @@ $(document).ready(function() {
 				tr.appendChild(td2);
 
 				var td3 = document.createElement('td');
-				td3.innerHTML = (data[i].subregion);
+				td3.innerHTML = (data[i].region);
 				tr.appendChild(td3);
 
 				document.getElementById('api-tbody').appendChild(tr);
@@ -53,29 +53,6 @@ $(document).ready(function() {
 
 			var nameCol = dataApi[x].name.toLowerCase();
 			var popCol = dataApi[x].population.toString();
-			var regCol = dataApi[x].subregion.toLowerCase();
-
-			if (query.indexOf("<") > -1 || query.indexOf("< ") > -1) {
-				if (parseInt(popCol) <= parseInt(query.substring(1))) {
-					for (var a = 0; a < 3; a++) {
-						apiTableTr.eq(x+1).find('td').eq(a).addClass(x.toString()).show();
-					}
-				}
-			}
-
-			if (query.indexOf(">") > -1 || query.indexOf(">") > -1) {
-				if (parseInt(popCol) >= parseInt(query.substring(1))) {
-					for (var b = 0; b < 3; b++) {
-						apiTableTr.eq(x+1).find('td').eq(b).addClass(x.toString()).show();
-					}
-				}
-			}
-
-			if (popCol.indexOf(query) > - 1) {
-				for (var c = 0; c < 3; c++) {
-					apiTableTr.eq(x+1).find('td').eq(c).addClass(x.toString()).show();
-				}
-			}
 
 			if (nameCol.indexOf(query) > - 1) {
 				for (var d = 0; d < 3; d++) {
@@ -83,9 +60,21 @@ $(document).ready(function() {
 				}
 			}
 
-			if (regCol.indexOf(query) > - 1) {
-				for (e = 0; e < 3; e++) {
-					apiTableTr.eq(x+1).find('td').eq(e).addClass(x.toString()).show();
+			if (query.indexOf("<") > -1 || query.indexOf("< ") > -1) {
+				if (parseInt(popCol) <= parseInt(query.substring(1))) {
+					for (var a = 0; a < 3; a++) {
+						apiTableTr.eq(x+1).find('td').eq(a).addClass(x.toString()).show();
+					}
+				}
+			} else if (query.indexOf(">") > -1 || query.indexOf(">") > -1) {
+				if (parseInt(popCol) >= parseInt(query.substring(1))) {
+					for (var b = 0; b < 3; b++) {
+						apiTableTr.eq(x+1).find('td').eq(b).addClass(x.toString()).show();
+					}
+				}
+			} else if (popCol.indexOf(query) > - 1) {
+				for (var c = 0; c < 3; c++) {
+					apiTableTr.eq(x+1).find('td').eq(c).addClass(x.toString()).show();
 				}
 			}
 
@@ -103,7 +92,7 @@ $(document).ready(function() {
 			document.getElementById('final-line-name').innerHTML = dataApi[dataApiIndex].name;
 			document.getElementById('final-line-capital').innerHTML = dataApi[dataApiIndex].capital; 
 			document.getElementById('final-line-population').innerHTML = dataApi[dataApiIndex].population;
-			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].subregion;
+			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].region;
 			document.getElementById('final-line-country-code').innerHTML = dataApi[dataApiIndex].alpha3Code;
 			// document.getElementById('final-line-bordering-countries').innerHTML = dataApi[dataApiIndex].borders; 
 			// document.getElementById('final-line-currency-code').innerHTML = dataApi[dataApiIndex].currencies.code; 
