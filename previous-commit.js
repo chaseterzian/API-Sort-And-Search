@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 			setTimeout(function() {
 				$('#loader').removeClass('loader');
-			},500);
+			},1000);
 
 		});
 
@@ -79,7 +79,6 @@ $(document).ready(function() {
 			}
 
 		}
-		
 
 		if ($('#api-table td:visible').length === 3) {
 			$('#final-line-wrap').fadeIn(200);
@@ -95,6 +94,11 @@ $(document).ready(function() {
 			document.getElementById('final-line-population').innerHTML = dataApi[dataApiIndex].population;
 			document.getElementById('final-line-region').innerHTML = dataApi[dataApiIndex].region;
 			document.getElementById('final-line-country-code').innerHTML = dataApi[dataApiIndex].alpha3Code;
+			// document.getElementById('final-line-bordering-countries').innerHTML = dataApi[dataApiIndex].borders; 
+			// document.getElementById('final-line-currency-code').innerHTML = dataApi[dataApiIndex].currencies.code; 
+			// document.getElementById('final-line-currency-name').innerHTML = dataApi[dataApiIndex].currencies.name; 
+			// document.getElementById('final-line-currency-symbol').innerHTML = dataApi[dataApiIndex].currencies.symbol; 
+			// document.getElementById('final-line-language').innerHTML = dataApi[dataApiIndex].languages.name; 
 			document.getElementById('final-line-tld').innerHTML = dataApi[dataApiIndex].topLevelDomain; 
 		}
 
